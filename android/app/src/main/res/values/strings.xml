@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bank Payment Verification</string>
+    <string name="main_subtitle">Bank SMS relay for payment verification.</string>
+    <string name="queue_counts_placeholder">Queue: —</string>
+    <string name="queue_counts">Pending: %1$d · Failed: %2$d</string>
+    <string name="settings">Settings</string>
+    <string name="settings_saved">Settings saved</string>
+    <string name="sync_started">Synchronization started</string>
+    <string name="backend_url">Backend URL (https://…)</string>
+    <string name="device_id">Device ID</string>
+    <string name="device_name">Device name</string>
+    <string name="sender_patterns">Bank sender patterns (comma separated)</string>
+    <string name="api_key">API key</string>
+    <string name="secret">Device secret</string>
+    <string name="save">Save</string>
+    <string name="test_connection">Test connection</string>
+    <string name="manual_sync">Manual sync</string>
+    <string name="not_configured">Not configured</string>
+    <string name="testing">Testing…</string>
+    <string name="connected">Connected ✓</string>
+    <string name="connection_failed">Connection failed ✗</string>
+    <string name="last_sync_placeholder">Last sync: —</string>
+    <string name="last_sync">Last sync: %1$s</string>
+    <string name="never">never</string>
+    <string name="pending_count">Pending SMS: %1$d</string>
+    <string name="failed_count">Failed SMS: %1$d</string>
+</resources>

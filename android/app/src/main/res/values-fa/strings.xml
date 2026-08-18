@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">تأیید پرداخت بانکی</string>
+    <string name="main_subtitle">انتقال پیامک بانکی برای تأیید پرداخت</string>
+    <string name="queue_counts_placeholder">صف: —</string>
+    <string name="queue_counts">در انتظار: %1$d · ناموفق: %2$d</string>
+    <string name="settings">تنظیمات</string>
+    <string name="settings_saved">تنظیمات ذخیره شد</string>
+    <string name="sync_started">همگام‌سازی آغاز شد</string>
+    <string name="backend_url">آدرس سرور (https://…)</string>
+    <string name="device_id">شناسه دستگاه</string>
+    <string name="device_name">نام دستگاه</string>
+    <string name="sender_patterns">الگوهای فرستنده بانک (با ویرگول جدا کنید)</string>
+    <string name="api_key">کلید API</string>
+    <string name="secret">رمز دستگاه</string>
+    <string name="save">ذخیره</string>
+    <string name="test_connection">آزمون اتصال</string>
+    <string name="manual_sync">همگام‌سازی دستی</string>
+    <string name="not_configured">پیکربندی نشده</string>
+    <string name="testing">در حال آزمون…</string>
+    <string name="connected">متصل ✓</string>
+    <string name="connection_failed">اتصال ناموفق ✗</string>
+    <string name="last_sync_placeholder">آخرین همگام‌سازی: —</string>
+    <string name="last_sync">آخرین همگام‌سازی: %1$s</string>
+    <string name="never">هرگز</string>
+    <string name="pending_count">پیامک در انتظار: %1$d</string>
+    <string name="failed_count">پیامک ناموفق: %1$d</string>
+</resources>
