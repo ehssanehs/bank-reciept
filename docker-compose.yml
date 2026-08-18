@@ -1,0 +1,73 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: bankpay_app
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      APP_ENV: production
+      APP_DEBUG: "false"
+      QUEUE_CONNECTION: redis
+      CACHE_STORE: redis
+      SESSION_DRIVER: redis
+      DB_CONNECTION: mysql
+      DB_HOST: mysql
+      REDIS_HOST: redis
+      OCR_PROVIDER: ${OCR_PROVIDER:-tesseract}
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+    volumes:
+      - app_storage:/var/www/html/storage/app
+    # Migrations run on boot; supervisord then starts nginx + php-fpm + worker + scheduler.
+    command: >
+      sh -c "php artisan migrate --force --no-interaction || exit 1;
+             /usr/bin/supervisord -c /etc/supervisord.conf"
+    networks: [bankpay]
+
+  mysql:
+    image: mysql:8.0
+    container_name: bankpay_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE:-bank_payment}
+      MYSQL_USER: ${DB_USERNAME:-bank_payment}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-bank_payment}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-change_me_root}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${DB_ROOT_PASSWORD:-change_me_root}"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+    networks: [bankpay]
+
+  redis:
+    image: redis:7-alpine
+    container_name: bankpay_redis
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - redis_data:/data
+    networks: [bankpay]
+
+volumes:
+  mysql_data:
+  redis_data:
+  app_storage:
+
+networks:
+  bankpay:
+    driver: bridge

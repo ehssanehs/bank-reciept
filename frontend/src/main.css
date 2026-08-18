@@ -1,0 +1,16 @@
+/*
+ * Source stylesheet for the customer web app and admin panel.
+ *
+ * The compiled output is committed at backend/public/css/app.css (the file the
+ * Blade layouts actually load). To rebuild from source:
+ *
+ *     cd frontend && npm install && npm run build
+ *
+ * This keeps the deployed application independent of a Node runtime — the
+ * committed CSS is what runs in production.
+ */
+@import '../../backend/public/css/app.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

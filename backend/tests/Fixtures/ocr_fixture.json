@@ -1,0 +1,8 @@
+{
+  "raw_text": "پرداخت موفق مبلغ ۵٬۰۰۰٬۰۰۰ ریال شماره پیگیری 845621",
+  "fields": {
+    "amount": { "value": 5000000, "confidence": 0.99, "source": "ocr" },
+    "tracking_number": { "value": "845621", "confidence": 0.99, "source": "ocr" },
+    "currency": { "value": "IRR", "confidence": 0.99, "source": "ocr" }
+  }
+}
